@@ -40,13 +40,12 @@ min_length = st.sidebar.slider(
 # -----------------------------
 # Example
 # -----------------------------
-example = """
+example_text = """
 Artificial Intelligence (AI) is transforming industries by enabling machines to perform tasks that normally require human intelligence. AI systems can analyze large amounts of data, recognize patterns, make decisions, and continuously improve through learning. Applications of AI include healthcare, finance, education, transportation, customer service, and robotics. As AI technology advances, it is becoming an essential part of modern businesses and everyday life.
 """
 
-if st.button("📋 Load Example"):
-    st.session_state.article = example
-
+if "summary_text" not in st.session_state:
+    st.session_state.summary_text = st.session_state.get("input_text", "")
 # -----------------------------
 # Input
 # -----------------------------
@@ -60,6 +59,7 @@ article = st.text_area(
     "Enter your article",
     key="summary_text",
     height=300
+    placeholder="Paste your article here..."
 )
 
 # -----------------------------
