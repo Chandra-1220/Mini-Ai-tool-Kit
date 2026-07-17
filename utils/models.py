@@ -39,13 +39,11 @@ def load_qa_model():
 # Translation (English → French)
 # -------------------------------
 @st.cache_resource
-def load_translator():
+def load_translation_model(model_name):
     return pipeline(
         "translation",
-        model="facebook/nllb-200-distilled-600M",
-        
+        model=model_name
     )
-
 
 # -------------------------------
 # Named Entity Recognition
