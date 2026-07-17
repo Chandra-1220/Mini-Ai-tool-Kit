@@ -39,26 +39,19 @@ example_text = (
     "It makes building AI applications simple and enjoyable."
 )
 
-# -----------------------------
-# Default Text
-# -----------------------------
-if "page_text" not in st.session_state:
-    st.session_state.page_text = st.session_state.get("input_text", "")
+# First time opening the page
+if "sentiment_text" not in st.session_state:
+    st.session_state.sentiment_text = st.session_state.get("input_text", "")
 
-# -----------------------------
-# Example Button
-# -----------------------------
+# Load example only when button is clicked
 if st.button("📋 Load Example"):
-    st.session_state.page_text = example_text
+    st.session_state.sentiment_text = example_text
 
-# -----------------------------
-# User Input
-# -----------------------------
+# Text area
 text = st.text_area(
     "Enter your text",
-    value=st.session_state.page_text,
-    height=180,
-    placeholder="Type or paste your text here..."
+    key="sentiment_text",
+    height=180
 )
 
 # Keep session state updated if user edits the text
