@@ -63,7 +63,20 @@ user_text = st.text_area(
     height=250,
     placeholder="Type or paste your text here..."
 )
+# -----------------------------
+# Save input and open task
+# -----------------------------
+def open_task(page):
+    if not user_text.strip():
+        st.warning("Please enter some text first.")
+    else:
+        st.session_state["input_text"] = user_text
+        st.switch_page(page)
 
+st.markdown(
+    '<p class="subtitle">Choose an NLP task to get started</p>',
+    unsafe_allow_html=True
+)
 st.markdown(
     '<p class="subtitle">Choose an NLP task to get started</p>',
     unsafe_allow_html=True
@@ -78,12 +91,9 @@ with col1:
     with st.container(border=True):
         st.subheader("😊 Sentiment Analysis")
         st.write("Analyze whether text is Positive, Negative or Neutral.")
-        def open_task(page):
-    if not user_text.strip():
-        st.warning("Please enter some text first.")
-    else:
-        st.session_state["input_text"] = user_text
-        st.switch_page(page)
+
+        if st.button("Open", use_container_width=True, key="sentiment"):
+            open_task("pages/1_😊_Sentiment.py")
 
 with col2:
     with st.container(border=True):
