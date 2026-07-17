@@ -40,24 +40,37 @@ Examples:
 # ----------------------------------
 # Example
 # ----------------------------------
-example = """
+example_text = """
 Sundar Pichai is the CEO of Google. He met Prime Minister Narendra Modi in New Delhi
 to discuss Artificial Intelligence initiatives for India.
 """
 
-if st.button("📋 Load Example"):
-    st.session_state.ner_text = example
+# Initialize from Home Input
+if "ner_text" not in st.session_state:
+    st.session_state.ner_text = st.session_state.get("input_text", "")
+
+# ----------------------------------
+# Buttons
+# ----------------------------------
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🔄 Use Home Input", use_container_width=True):
+        st.session_state.ner_text = st.session_state.get("input_text", "")
+
+with col2:
+    if st.button("📋 Load Example", use_container_width=True):
+        st.session_state.ner_text = example_text
 
 # ----------------------------------
 # Input
 # ----------------------------------
 text = st.text_area(
     "Enter Text",
-    value=st.session_state.get("ner_text", ""),
+    key="ner_text",
     height=220,
     placeholder="Type or paste your text..."
 )
-
 # ----------------------------------
 # Extract
 # ----------------------------------
