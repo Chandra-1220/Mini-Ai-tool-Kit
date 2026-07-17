@@ -39,10 +39,10 @@ def load_qa_model():
 # Translation (English → French)
 # -------------------------------
 @st.cache_resource
-def load_summarizer():
+def load_translation_model(model_name):
     return pipeline(
-        "summarization",
-        model="sshleifer/distilbart-cnn-12-6"
+        "translation",
+        model=model_name
     )
 
 # -------------------------------
