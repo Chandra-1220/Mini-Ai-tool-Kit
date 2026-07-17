@@ -43,6 +43,9 @@ example_text = (
 st.session_state.sentiment_text = st.session_state.get("input_text", "")
 
 # Override only if example is requested
+if st.button("🔄 Use Home Input"):
+    st.session_state.sentiment_text = st.session_state.get("input_text", "")
+
 if st.button("📋 Load Example"):
     st.session_state.sentiment_text = example_text
 
