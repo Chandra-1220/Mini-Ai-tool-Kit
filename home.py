@@ -21,10 +21,10 @@ st.markdown("""
 
 .title {
     text-align: center;
-    font-size: 80px;
+    font-size: 4.8rem;
     font-weight: 800;
     color: #2563EB;
-    margin-bottom: 10px;
+    margin-bottom: 0.2rem;
 }
 
 .subtitle {
@@ -55,7 +55,18 @@ st.markdown("""
 # -----------------------------
 # Header
 # -----------------------------
-st.markdown('<p class="title">🤖 Mini AI Toolkit</p>', unsafe_allow_html=True)
+st.markdown("""
+<h1 style="
+text-align:center;
+font-size:72px;
+font-weight:800;
+background:linear-gradient(90deg,#2563EB,#00C6FF);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:0;">
+🤖 Mini AI Toolkit
+</h1>
+""", unsafe_allow_html=True)
 st.subheader("📝 Enter Your Text")
 
 user_text = st.text_area(
