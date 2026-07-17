@@ -119,14 +119,14 @@ with col3:
         st.subheader("💬 Question Answering")
         st.write("Ask questions based on a given context.")
         if st.button("Open", use_container_width=True, key="qa"):
-            st.switch_page("pages/3_💬_Question_Answering.py")
+            open_task("pages/3_💬_Question_Answering.py")
 
 with col4:
     with st.container(border=True):
         st.subheader("🌍 Language Translation")
         st.write("Translate English text into another language.")
         if st.button("Open", use_container_width=True, key="translation"):
-            st.switch_page("pages/4_🌍_Translator.py")
+            open_task("pages/4_🌍_Translator.py")
 
 # -----------------------------
 # Third Row
@@ -138,14 +138,14 @@ with col5:
         st.subheader("🏷️ Named Entity Recognition")
         st.write("Identify people, organizations and locations.")
         if st.button("Open", use_container_width=True, key="ner"):
-            st.switch_page("pages/5_🏷️_NER.py")
+            open_task("pages/5_🏷️_NER.py")
 
 with col6:
     with st.container(border=True):
         st.subheader("🎯 Zero-Shot Classification")
         st.write("Classify text into custom labels without training.")
         if st.button("Open", use_container_width=True, key="zero"):
-            st.switch_page("pages/6_🎯_ZeroShot.py")
+            open_task("pages/6_🎯_ZeroShot.py")
 
 # -----------------------------
 # Footer
