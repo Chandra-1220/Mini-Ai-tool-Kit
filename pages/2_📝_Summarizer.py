@@ -58,7 +58,7 @@ if st.button("📋 Load Example"):
 article = st.text_area(
     "Enter your article",
     key="summary_text",
-    height=300
+    height=300,
     placeholder="Paste your article here..."
 )
 
