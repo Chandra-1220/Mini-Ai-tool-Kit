@@ -42,17 +42,34 @@ translation_type = st.sidebar.selectbox(
 # ----------------------------------
 # Example
 # ----------------------------------
-example = "Artificial Intelligence is transforming the world by enabling machines to learn from data."
+example_text = (
+    "Artificial Intelligence is transforming the world by enabling "
+    "machines to learn from data."
+)
 
-if st.button("📋 Load Example"):
-    st.session_state.translation_text = example
+# Initialize from Home Input
+if "translation_text" not in st.session_state:
+    st.session_state.translation_text = st.session_state.get("input_text", "")
+
+# ----------------------------------
+# Buttons
+# ----------------------------------
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🔄 Use Home Input", use_container_width=True):
+        st.session_state.translation_text = st.session_state.get("input_text", "")
+
+with col2:
+    if st.button("📋 Load Example", use_container_width=True):
+        st.session_state.translation_text = example_text
 
 # ----------------------------------
 # Input Text
 # ----------------------------------
 text = st.text_area(
     "Enter Text",
-    value=st.session_state.get("translation_text", ""),
+    key="translation_text",
     height=220,
     placeholder="Type or paste your text here..."
 )
