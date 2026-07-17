@@ -42,26 +42,42 @@ Artificial Intelligence is transforming healthcare by helping doctors detect dis
 
 example_labels = "Technology, Healthcare, Sports, Finance, Education"
 
-if st.button("📋 Load Example"):
-    st.session_state.zero_text = example_text
-    st.session_state.zero_labels = example_labels
+# Initialize from Home Input
+if "zero_text" not in st.session_state:
+    st.session_state.zero_text = st.session_state.get("input_text", "")
+
+if "zero_labels" not in st.session_state:
+    st.session_state.zero_labels = ""
+
+# ----------------------------------
+# Buttons
+# ----------------------------------
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🔄 Use Home Input", use_container_width=True):
+        st.session_state.zero_text = st.session_state.get("input_text", "")
+
+with col2:
+    if st.button("📋 Load Example", use_container_width=True):
+        st.session_state.zero_text = example_text
+        st.session_state.zero_labels = example_labels
 
 # ----------------------------------
 # Input
 # ----------------------------------
 text = st.text_area(
     "Enter Text",
-    value=st.session_state.get("zero_text", ""),
+    key="zero_text",
     height=220,
     placeholder="Type or paste your text..."
 )
 
 labels = st.text_input(
     "Candidate Labels (comma separated)",
-    value=st.session_state.get("zero_labels", ""),
+    key="zero_labels",
     placeholder="Technology, Sports, Finance"
 )
-
 # ----------------------------------
 # Classification
 # ----------------------------------
