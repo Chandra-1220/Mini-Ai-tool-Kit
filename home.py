@@ -70,7 +70,7 @@ if st.button("✅ Apply Input", use_container_width=True):
     if user_text.strip():
         st.session_state["input_text"] = user_text
         st.success("Input applied successfully! Now choose an NLP task.")
-        st.write(st.session_state.get("input_text"))
+        
     else:
         st.warning("Please enter some text before applying.")
 
