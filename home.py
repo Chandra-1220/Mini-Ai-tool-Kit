@@ -64,13 +64,21 @@ user_text = st.text_area(
     placeholder="Type or paste your text here..."
 )
 # -----------------------------
+# Apply Input
+# -----------------------------
+if st.button("✅ Apply Input", use_container_width=True):
+    if user_text.strip():
+        st.session_state["input_text"] = user_text
+        st.success("Input applied successfully! Now choose an NLP task.")
+    else:
+        st.warning("Please enter some text before applying.")
+# -----------------------------
 # Save input and open task
 # -----------------------------
 def open_task(page):
-    if not user_text.strip():
-        st.warning("Please enter some text first.")
+    if not st.session_state.get("input_text", "").strip():
+        st.warning("Please enter your text and click 'Apply Input' first.")
     else:
-        st.session_state["input_text"] = user_text
         st.switch_page(page)
 
 # -----------------------------
