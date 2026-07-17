@@ -50,11 +50,16 @@ if st.button("📋 Load Example"):
 # -----------------------------
 # Input
 # -----------------------------
+if st.button("🔄 Use Home Input"):
+    st.session_state.summary_text = st.session_state.get("input_text", "")
+
+if st.button("📋 Load Example"):
+    st.session_state.summary_text = example_text
+
 article = st.text_area(
     "Enter your article",
-    value=st.session_state.get("article", ""),
-    height=300,
-    placeholder="Paste your article here..."
+    key="summary_text",
+    height=300
 )
 
 # -----------------------------
