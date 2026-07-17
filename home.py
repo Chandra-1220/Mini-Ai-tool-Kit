@@ -81,15 +81,7 @@ def open_task(page):
     else:
         st.switch_page(page)
 
-# -----------------------------
-# Apply Input
-# -----------------------------
-if st.button("✅ Apply Input", use_container_width=True):
-    if user_text.strip():
-        st.session_state["input_text"] = user_text
-        st.success("Input applied successfully! Now choose an NLP task.")
-    else:
-        st.warning("Please enter some text before applying.")
+
 st.markdown(
     '<p class="subtitle">Choose an NLP task to get started</p>',
     unsafe_allow_html=True
