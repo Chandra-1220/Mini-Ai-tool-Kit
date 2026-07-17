@@ -78,8 +78,12 @@ with col1:
     with st.container(border=True):
         st.subheader("😊 Sentiment Analysis")
         st.write("Analyze whether text is Positive, Negative or Neutral.")
-        if st.button("Open", use_container_width=True, key="sentiment"):
-            st.switch_page("pages/1_😊_Sentiment.py")
+        def open_task(page):
+    if not user_text.strip():
+        st.warning("Please enter some text first.")
+    else:
+        st.session_state["input_text"] = user_text
+        st.switch_page(page)
 
 with col2:
     with st.container(border=True):
