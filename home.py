@@ -56,14 +56,7 @@ st.markdown("""
 # Header
 # -----------------------------
 st.markdown("""
-<h1 style="
-text-align:center;
-font-size:72px;
-font-weight:800;
-background:linear-gradient(90deg,#2563EB,#00C6FF);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:0;">
+<h1 class="title">
 🤖 Mini AI Toolkit
 </h1>
 """, unsafe_allow_html=True)
