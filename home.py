@@ -55,6 +55,14 @@ st.markdown("""
 # Header
 # -----------------------------
 st.markdown('<p class="title">🤖 Mini AI Toolkit</p>', unsafe_allow_html=True)
+st.subheader("📝 Enter Your Text")
+
+user_text = st.text_area(
+    "Input",
+    value=st.session_state.get("input_text", ""),
+    height=250,
+    placeholder="Type or paste your text here..."
+)
 
 st.markdown(
     '<p class="subtitle">Choose an NLP task to get started</p>',
