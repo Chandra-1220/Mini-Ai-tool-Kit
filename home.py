@@ -107,7 +107,7 @@ with col2:
         st.subheader("📝 Text Summarizer")
         st.write("Generate concise summaries from long articles.")
         if st.button("Open", use_container_width=True, key="summary"):
-            st.switch_page("pages/2_📝_Summarizer.py")
+             open_task("pages/2_📝_Summarizer.py")
 
 # -----------------------------
 # Second Row
