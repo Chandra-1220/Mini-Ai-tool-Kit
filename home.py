@@ -23,9 +23,10 @@ st.markdown("""
     text-align: center;
     font-size: 3.8rem;
     font-weight: 800;
-    color: #2563EB;
-    margin-bottom: 0.2rem;
-}
+   background:linear-gradient(90deg,#2563EB,#00C6FF);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:0;">
 
 .subtitle {
     text-align: center;
