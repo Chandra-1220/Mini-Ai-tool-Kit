@@ -34,23 +34,40 @@ from data without being explicitly programmed.
 
 example_question = "What is Machine Learning?"
 
-if st.button("📋 Load Example"):
-    st.session_state.context = example_context
-    st.session_state.question = example_question
+# Initialize from Home Input
+if "qa_context" not in st.session_state:
+    st.session_state.qa_context = st.session_state.get("input_text", "")
+
+if "qa_question" not in st.session_state:
+    st.session_state.qa_question = ""
+
+# -----------------------------------
+# Buttons
+# -----------------------------------
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🔄 Use Home Input", use_container_width=True):
+        st.session_state.qa_context = st.session_state.get("input_text", "")
+
+with col2:
+    if st.button("📋 Load Example", use_container_width=True):
+        st.session_state.qa_context = example_context
+        st.session_state.qa_question = example_question
 
 # -----------------------------------
 # User Input
 # -----------------------------------
 context = st.text_area(
     "📄 Context",
-    value=st.session_state.get("context", ""),
+    key="qa_context",
     height=250,
     placeholder="Paste your context paragraph here..."
 )
 
 question = st.text_input(
     "❓ Question",
-    value=st.session_state.get("question", ""),
+    key="qa_question",
     placeholder="Ask a question based on the context..."
 )
 
