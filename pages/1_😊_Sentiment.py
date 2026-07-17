@@ -34,22 +34,35 @@ This model predicts whether a piece of text expresses a:
 # -----------------------------
 # Example Button
 # -----------------------------
-if st.button("📋 Load Example"):
+example_text = (
+    "I absolutely love Streamlit! "
+    "It makes building AI applications simple and enjoyable."
+)
 
-    st.session_state.example = (
-        "I absolutely love Streamlit! "
-        "It makes building AI applications simple and enjoyable."
-    )
+# -----------------------------
+# Default Text
+# -----------------------------
+if "page_text" not in st.session_state:
+    st.session_state.page_text = st.session_state.get("input_text", "")
+
+# -----------------------------
+# Example Button
+# -----------------------------
+if st.button("📋 Load Example"):
+    st.session_state.page_text = example_text
 
 # -----------------------------
 # User Input
 # -----------------------------
 text = st.text_area(
     "Enter your text",
-    value=st.session_state.get("example", ""),
+    value=st.session_state.page_text,
     height=180,
     placeholder="Type or paste your text here..."
 )
+
+# Keep session state updated if user edits the text
+st.session_state.page_text = text
 
 # -----------------------------
 # Analyze Button
