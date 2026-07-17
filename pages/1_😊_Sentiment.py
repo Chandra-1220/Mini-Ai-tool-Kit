@@ -39,15 +39,13 @@ example_text = (
     "It makes building AI applications simple and enjoyable."
 )
 
-# First time opening the page
-if "sentiment_text" not in st.session_state:
-    st.session_state.sentiment_text = st.session_state.get("input_text", "")
+# Always load latest Home input
+st.session_state.sentiment_text = st.session_state.get("input_text", "")
 
-# Load example only when button is clicked
+# Override only if example is requested
 if st.button("📋 Load Example"):
     st.session_state.sentiment_text = example_text
 
-# Text area
 text = st.text_area(
     "Enter your text",
     key="sentiment_text",
