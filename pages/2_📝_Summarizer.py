@@ -49,12 +49,15 @@ if "summary_text" not in st.session_state:
 # -----------------------------
 # Input
 # -----------------------------
-if st.button("🔄 Use Home Input"):
-    st.session_state.summary_text = st.session_state.get("input_text", "")
+col1, col2 = st.columns(2)
 
-if st.button("📋 Load Example"):
-    st.session_state.summary_text = example_text
+with col1:
+    if st.button("🔄 Use Home Input", use_container_width=True):
+        st.session_state.summary_text = st.session_state.get("input_text", "")
 
+with col2:
+    if st.button("📋 Load Example", use_container_width=True):
+        st.session_state.summary_text = example_text
 article = st.text_area(
     "Enter your article",
     key="summary_text",
